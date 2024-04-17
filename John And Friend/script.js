@@ -1,41 +1,55 @@
 /** @format */
 
+/** @format */
+
 let arr = [
     { id: 1, name: "john", age: "18", profession: "developer" },
     { id: 2, name: "jack", age: "20", profession: "developer" },
     { id: 3, name: "karen", age: "19", profession: "admin" },
-];
+  ];
+  
+  function PrintDeveloperbyMap() {
+    let NewArr = arr.filter((item) => {
+        return item.profession === "developer";
+    });
 
-function PrintDeveloperbyMap() {
-    const developers = arr.filter(employee => employee.profession === "developer");
-    developers.map(developer => console.log(developer));
-}
-
-function PrintDeveloperbyForEach() {
+    NewArr.map((item) => {
+        console.log(item);
+    });
+  }
+  
+  function PrintDeveloperbyForEach() {
     arr.forEach(employee => {
-        if (employee.profession === "developer") {
+        if(employee.profession === "developer"){
             console.log(employee);
         }
+    })
+  }
+  
+  function addData() {
+    arr.push({id:4,name:"susan",age:"20",profession:"intern"});
+
+    arr.map((item) => {
+        console.log(item);
+    })
+  }
+  
+  function removeAdmin() {
+    let NewArray = arr.filter((item) => {
+        return item.profession !== "admin";
     });
-}
 
-function addData() {
-    const newEmployee = { id: 4, name: "susan", age: "20", profession: "intern" };
-    arr.push(newEmployee);
-    console.log(newEmployee);
-}
+    NewArray.forEach((item) => {
+        console.log(item);
+    })
+  }
+  
+  function concatenateArray() {
+    let NewEntry = [{ id: 1, name: "surjeet", age: "20", profession: "Front-end-developer" },
+                    { id: 2, name: "aditya", age: "18", profession: "ui/ux-designer" },
+                    { id: 3, name: "jagu", age: "21", profession: "backend-developer" ,}];
 
-function removeAdmin() {
-    arr = arr.filter(employee => employee.profession !== "admin");
-    console.log(arr);
-}
+    let finalArray = [...arr,...NewEntry];
 
-function concatenateArray() {
-    const newArray = [
-        { id: 5, name: "ayush", age: "22", profession: "manager" },
-        { id: 6, name: "yash", age: "23", profession: "designer" },
-        { id: 7, name: "surjeet", age: "20", profession: "developer" }
-    ];
-    const concatenatedArray = arr.concat(newArray);
-    console.log(concatenatedArray);
-}
+    console.log(finalArray);
+  }
